@@ -1,0 +1,98 @@
+[
+    {
+        "inicio": {"mes": 3, "dia": 21},
+        "fin": {"mes": 4, "dia": 19},
+        "nombre": "Aries",
+        "imagen": "aries.jpg",
+        "constelacion": "aries-const.jpg",
+        "info": "Aries es un signo de fuego, lleno de energía y entusiasmo. Son líderes naturales, impetuosos y determinados."
+    },
+    {
+        "inicio": {"mes": 4, "dia": 20},
+        "fin": {"mes": 5, "dia": 20},
+        "nombre": "Tauro",
+        "imagen": "tauro.jpg",
+        "constelacion": "tauro-const.jpg",
+        "info": "Tauro es un signo de tierra, conocido por su paciencia, determinación y apreciación por el confort."
+    },
+    {
+        "inicio": {"mes": 5, "dia": 21},
+        "fin": {"mes": 6, "dia": 20},
+        "nombre": "Géminis",
+        "imagen": "geminis.jpg",
+        "constelacion": "geminis-const.jpg",
+        "info": "Géminis es un signo de aire, caracterizado por su dualidad, adaptabilidad y curiosidad intelectual."
+    },
+    {
+        "inicio": {"mes": 6, "dia": 21},
+        "fin": {"mes": 7, "dia": 22},
+        "nombre": "Cáncer",
+        "imagen": "cancer.jpg",
+        "constelacion": "cancer-const.jpg",
+        "info": "Cáncer es un signo de agua, muy emocional, protector y con fuertes vínculos familiares."
+    },
+    {
+        "inicio": {"mes": 7, "dia": 23},
+        "fin": {"mes": 8, "dia": 22},
+        "nombre": "Leo",
+        "imagen": "leo.jpg",
+        "constelacion": "leo-const.jpg",
+        "info": "Leo es un signo de fuego, caracterizado por su carisma, creatividad y liderazgo natural."
+    },
+    {
+        "inicio": {"mes": 8, "dia": 23},
+        "fin": {"mes": 9, "dia": 22},
+        "nombre": "Virgo",
+        "imagen": "virgo.jpg",
+        "constelacion": "virgo-const.jpg",
+        "info": "Virgo es un signo de tierra, conocido por su perfeccionismo, practicidad y atención al detalle."
+    },
+    {
+        "inicio": {"mes": 9, "dia": 23},
+        "fin": {"mes": 10, "dia": 22},
+        "nombre": "Libra",
+        "imagen": "libra.jpg",
+        "constelacion": "libra-const.jpg",
+        "info": "Libra es un signo de aire, que busca el equilibrio, la armonía y la justicia en todo."
+    },
+    {
+        "inicio": {"mes": 10, "dia": 23},
+        "fin": {"mes": 11, "dia": 21},
+        "nombre": "Escorpio",
+        "imagen": "escorpio.jpg",
+        "constelacion": "escorpio-const.jpg",
+        "info": "Escorpio es un signo de agua, intenso, apasionado y muy perspicaz."
+    },
+    {
+        "inicio": {"mes": 11, "dia": 22},
+        "fin": {"mes": 12, "dia": 21},
+        "nombre": "Sagitario",
+        "imagen": "sagitario.jpg",
+        "constelacion": "sagitario-const.jpg",
+        "info": "Sagitario es un signo de fuego, aventurero, optimista y amante de la libertad."
+    },
+    {
+        "inicio": {"mes": 12, "dia": 22},
+        "fin": {"mes": 1, "dia": 19},
+        "nombre": "Capricornio",
+        "imagen": "capricornio.jpg",
+        "constelacion": "capricornio-const.jpg",
+        "info": "Capricornio es un signo de tierra, ambicioso, disciplinado y paciente."
+    },
+    {
+        "inicio": {"mes": 1, "dia": 20},
+        "fin": {"mes": 2, "dia": 18},
+        "nombre": "Acuario",
+        "imagen": "acuario.jpg",
+        "constelacion": "acuario-const.jpg",
+        "info": "Acuario es un signo de aire, original, independiente y humanitario."
+    },
+    {
+        "inicio": {"mes": 2, "dia": 19},
+        "fin": {"mes": 3, "dia": 20},
+        "nombre": "Piscis",
+        "imagen": "piscis.jpg",
+        "constelacion": "piscis-const.jpg",
+        "info": "Piscis es un signo de agua, intuitivo, sensible y muy compasivo."
+    }
+]

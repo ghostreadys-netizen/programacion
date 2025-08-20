@@ -1,0 +1,24 @@
+Algoritmo sin_titulo
+	
+	Definir a,b,c,i,datos,n como entero
+	Dimension a[30],b[30],c[30];
+	//llenar mi arreglo
+	Escribir "introduza la cantidad de arreglo";
+	leer n;
+	para i<-1 Hasta n Hacer
+		Escribir " introduzca el vector|",i,"|:"; sin saltar
+		leer datos;
+		a[i]<-datos;
+		c[1]<-c[1]+a[1];
+	FinPara
+	//imprima en pantalla el resultado
+	para i<-1 Hasta n Hacer
+		Escribir "introduzca el elemento b|",i,"|:"; sin saltar
+		leer datos;
+		b[i]<-datos;
+		c[2]<-c[2]+b[2];
+FinPara
+	para i<-1 Hasta 2 Hacer
+			Escribir "introduzca los elementos del vector|",i,"|:",a[i];
+	FinPara
+FinAlgoritmo

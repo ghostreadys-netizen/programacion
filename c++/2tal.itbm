@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main(int argc, char *argv[]) {
+	float itbm, precio,total;
+	cout<<"Ingrese el precio del producto: "; cin>>precio;
+	
+	//calculo del itbm
+	itbm=(float) 7/100;
+	total=(float)precio*itbm;
+	cout<<"\n Precio: "<<precio;
+	cout<<"\n Monto a pagar: "<<total;
+	cout<<"\n ITBM: "<<itbm;
+	return 0;
+}
+
