@@ -1,0 +1,77 @@
+
+CREATE DATABASE Zero_tecnology;
+USE Zero_tecnology;
+
+
+
+
+CREATE TABLE dispositivos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tipos_de_Consola VARCHAR(100) NOT NULL,
+    marca VARCHAR(100) NOT NULL,
+    modelo VARCHAR(100) NOT NULL,
+    numerodeserie VARCHAR(100) NOT NULL,
+    cliente_id INT,
+    FOREIGN KEY (cliente_id) REFERENCES cliente(id)
+);
+
+CREATE TABLE proveedores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_empresa VARCHAR(100) NOT NULL,
+    direccion VARCHAR(255),
+    telefono VARCHAR(20),
+    email VARCHAR(100)
+);
+
+CREATE TABLE tipo_de_danio (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_tipo VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(255)
+);
+
+CREATE TABLE costo_de_reparacion (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tipo_danio_id INT,
+    costo DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (tipo_danio_id) REFERENCES tipo_de_danio(id)
+);x
+
+CREATE TABLE cliente (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100) NOT NULL,
+    direccion VARCHAR(255),
+    telefono VARCHAR(20),
+    email VARCHAR(100),
+    fecha DATE,
+    costo_id INT,
+    FOREIGN KEY (costo_id) REFERENCES costo_de_reparacion(id)
+);
+
+CREATE TABLE inventario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_producto VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(255),
+    cantidad INT NOT NULL,
+    precio DECIMAL(10,2) NOT NULL,
+    proveedor_id INT,
+    FOREIGN KEY (proveedor_id) REFERENCES proveedores(id)
+);
+
+CREATE TABLE ordenes_de_reparacion (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT,
+    tipo_danio_id INT,
+    fecha_inicio DATE,
+    fecha_fin DATE,w
+    costo_reparacion DECIMAL(10,2),
+      FOREIGN KEY (tipo_danio_id) REFERENCES tipo_de_danio(id)
+);
+
+CREATE TABLE historial_de_reparaciones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    orden_reparacion_id INT,
+    cliente_id INT,
+    fecha DATE,
+    FOREIGN KEY (orden_reparacion_id) REFERENCES ordenes_de_reparacion(id),
+  );

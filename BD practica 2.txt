@@ -1,0 +1,203 @@
+create database personal;
+use personal;
+
+CREATE TABLE empleado (
+  clave_emple varchar(8) NOT NULL,
+  nombre varchar(30),
+  apellido varchar(30),
+  Clave_Depto int(11) not Null,
+  FOREIGN KEY (Clave_Depto) REFERENCES departamento (id_dept)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE departamento (
+  id_dept int(11) NOT NULL AUTO_INCREMENT,
+  nombre varchar(255) NOT NULL,
+  persupuesto decimal(10,3) NOT NULL,
+  PRIMARY Key (id_dept)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+MariaDB [personal]> DESCRIBE empleado;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| clave_emple | varchar(8)  | NO   |     | NULL    |       |
+| nombre      | varchar(30) | YES  |     | NULL    |       |
+| apellido    | varchar(30) | YES  |     | NULL    |       |
+| Clave_Depto | int(11)     | NO   | MUL | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+4 rows in set (0.019 sec)
+
+MariaDB [personal]> DESCRIBE departamento;
++-------------+---------------+------+-----+---------+----------------+
+| Field       | Type          | Null | Key | Default | Extra          |
++-------------+---------------+------+-----+---------+----------------+
+| id_dept     | int(11)       | NO   | PRI | NULL    | auto_increment |
+| nombre      | varchar(255)  | NO   |     | NULL    |                |
+| persupuesto | decimal(10,3) | NO   |     | NULL    |                |
++-------------+---------------+------+-----+---------+----------------+
+3 rows in set (0.019 sec)
+
+INSERT INTO DEPARTAMENTO (id_dept, Nombre, Presupuesto)
+    VALUES
+    (1, 'Personal', 80000),
+    (2, 'Almacén', 70000),
+    (3, 'Contabilidad', 60000),
+    (4, 'Manufactura', 50000),
+    (5, 'Empaque', 30000);
+
+
+INSERT INTO EMPLEADO (Clave_Emple, Nombre, Apellido, Clave_Depto)
+    VALUES
+    ('EMP01', 'Armando', 'Lopez', 2),
+    ('EMP02', 'Tatiana', 'Vargas', 1),
+    ('EMP03', 'Laura', 'Iturria', 3),
+    ('EMP04', 'Juan', 'Perez', 4),
+    ('EMP05', 'Ivan', 'Lopez', 4),
+    ('EMP06', 'Margarita', 'Hernandez', 1),
+    ('EMP07', 'Jesus', 'Perez', 3),
+    ('EMP08', 'Tonatiuh', 'Flores', 2),
+    ('EMP09', 'Juan', 'Lopez', 4),
+    ('EMP10', 'Jose', 'Hernandez', 5);
+
+a.	Obtener los nombres y apellidos de los empleados.
+
+SELECT Nombre, Apellido FROM EMPLEADO;
++-----------+-----------+
+| Nombre    | Apellido  |
++-----------+-----------+
+| Armando   | Lopez     |
+| Tatiana   | Vargas    |
+| Laura     | Iturria   |
+| Juan      | P?rez     |
+| Ivan      | Lopez     |
+| Margarita | Hernandez |
+| Jesus     | Perez     |
+| Tonatiuh  | Flores    |
+| Juan      | Lopez     |
+| Jose      | Hernandez |
++-----------+-----------+
+
+b. Obtener los apellidos de los empleados sin repeticiones.
+
+SELECT DISTINCT Apellido FROM EMPLEADO;
++-----------+
+| Apellido  |
++-----------+
+| L?pez     |
+| Vargas    |
+| Iturria   |
+| P?rez     |
+| Hern?ndez |
+| Flores    |
++-----------+
+
+num expediente: número 4 dígitos,
+fecha inicio: fecha,
+fecha fin: fecha,
+estado: cadena de 10 caracteres,
+dni: cadena de 9 caracteres,
+nombre: cadena de 20 caracteres,
+apellidos: cadena de 20 caracteres,
+dirección: cadena de 30 caracteres,
+fecha nacimiento: fecha,
+número colegiado: número de 5 dígitos,
+casos ganados: número de 5 dígitos,
+
+c. Obtener todos los datos de los empleados que se apellidan "Lopez"
+
+SELECT * FROM EMPLEADO  WHERE Apellido = 'Lopez';
++-------------+---------+----------+-------------+
+| clave_emple | nombre  | apellido | Clave_Depto |
++-------------+---------+----------+-------------+
+| EMP01       | Armando | Lopez    |           2 |
+| EMP05       | Ivan    | Lopez    |           4 |
+| EMP09       | Juan    | Lopez    |           4 |
++-------------+---------+----------+-------------+
+
+d. Obtener todos los datos de los empleados que se apellidan "Lopez" y los que se apellidan "Perez".
+
+SELECT * FROM EMPLEADO  WHERE Apellido = 'Lopez' OR Apellido = 'Perez';
++-------------+---------+----------+-------------+
+| clave_emple | nombre  | apellido | Clave_Depto |
++-------------+---------+----------+-------------+
+| EMP01       | Armando | Lopez    |           2 |
+| EMP04       | Juan    | Perez    |           4 |
+| EMP05       | Ivan    | Lopez    |           4 |
+| EMP07       | Jesus   | Perez    |           3 |
+| EMP09       | Juan    | Lopez    |           4 |
++-------------+---------+----------+-------------+
+
+e.	Obtener el nombre y la clave del empleado de los trabajadores que trabajan en el departamento 4.
+
+SELECT Clave_Emple, Nombre FROM EMPLEADO WHERE Clave_Depto = 4;
++-------------+--------+
+| Clave_Emple | Nombre |
++-------------+--------+
+| EMP04       | Juan   |
+| EMP05       | Ivan   |
+| EMP09       | Juan   |
++-------------+--------+
+f. Obtener todos los datos de los empleados que trabajan para el departamento 1 0 3 ordenados alfabéticamente por nombre.
+
+SELECT * FROM EMPLEADO WHERE Clave_Depto = 1 OR Clave_Depto = 3 
+ORDER BY Nombre;
+
++-------------+-----------+-----------+-------------+
+| clave_emple | nombre    | apellido  | Clave_Depto |
++-------------+-----------+-----------+-------------+
+| EMP07       | Jesus     | Perez     |           3 |
+| EMP03       | Laura     | Iturria   |           3 |
+| EMP06       | Margarita | Hernendez |           1 |
+| EMP02       | Tatiana   | Vargas    |           1 |
++-------------+-----------+-----------+-------------+
+
+g. Obtener el nombre y apellido de los empleados cuyo apellido comienza con "H".
+
+SELECT Nombre, Apellido FROM EMPLEADO WHERE Apellido LIKE 'H%';
++-----------+-----------+
+| Nombre    | Apellido  |
++-----------+-----------+
+| Margarita | Hernendez |
+| Jose      | Hernandez |
++-----------+-----------+
+
+h.	Obtener los datos de los departamentos cuyo presupuesto est'entre B/. 50,000 y B/. 70,000.
+
+SELECT * FROM DEPARTAMENTO WHERE Presupuesto BETWEEN 50000 AND 70000;
++---------+--------------+-------------+
+| id_dept | nombre       | presupuesto |
++---------+--------------+-------------+
+|       2 | Almacen      |   70000.000 |
+|       3 | Contabilidad |   60000.000 |
+|       4 | Manufactura  |   50000.000 |
++---------+--------------+-------------+
+
+i.	Obtener la clave de empleado, nombre y apellido de los empleados que trabajan en el departamento de contabilidad.
+
+SELECT EMPLEADO.Clave_Emple, EMPLEADO.Nombre AS Nombre_Empleado, EMPLEADO.Apellido FROM EMPLEADO JOIN DEPARTAMENTO ON EMPLEADO.Clave_Depto = DEPARTAMENTO.id_dept WHERE DEPARTAMENTO.Nombre = 'Contabilidad';
++-------------+-----------------+----------+
+| Clave_Emple | Nombre_Empleado | Apellido |
++-------------+-----------------+----------+
+| EMP03       | Laura           | Iturria  |
+| EMP07       | Jesus           | Perez    |
++-------------+-----------------+----------+
+
+j.	Obtener el nombre y apellido, así como el nombre del departamento de cada uno de los empleados que laboran en la empresa.
+
+SELECT EMPLEADO.Nombre, EMPLEADO.Apellido, DEPARTAMENTO.Nombre AS Nombre_Depto FROM EMPLEADO JOIN DEPARTAMENTO ON EMPLEADO.Clave_Depto = DEPARTAMENTO.id_dept;
++-----------+-----------+--------------+
+| Nombre    | Apellido  | Nombre_Depto |
++-----------+-----------+--------------+
+| Tatiana   | Vargas    | Personal     |
+| Margarita | Hernendez | Personal     |
+| Armando   | Lopez     | Almacen      |
+| Tonatiuh  | Flores    | Almacen      |
+| Laura     | Iturria   | Contabilidad |
+| Jesus     | Perez     | Contabilidad |
+| Juan      | Perez     | Manufactura  |
+| Ivan      | Lopez     | Manufactura  |
+| Juan      | Lopez     | Manufactura  |
+| Jose      | Hernandez | Empaque      |
++-----------+-----------+--------------+
+
