@@ -1,0 +1,47 @@
+git config --global user.name "Tu Nombre"         # Configurar nombre de usuario
+git config --global user.email "tu@email.com"     # Configurar email
+git config --list                                 # Verificar 
+git init                                          # Iniciar un nuevo repositorio
+git clone <url>                                   # Clonar un repositorio existente
+git status                                        # Ver estado actual del repositorio
+git diff                                          # Ver cambios no preparados
+git diff --staged                                 # Ver cambios preparados para commit
+git log                                           # Ver historial de commits
+git log --oneline                                 # Ver historial de forma resumida
+git show <commit>                                 # Ver detalles de un commit específico
+git add <archivo>                                 # Añadir archivo específico al área de preparación
+git add .                                         # Añadir todos los archivos modificados
+git add -A                                        # Añadir todos los archivos (nuevos, modificados y eliminados)
+git reset <archivo>                               # Quitar archivo del área de preparación
+git commit -m "Mensaje del commit"                # Crear un commit con mensaje
+git commit -am "Mensaje"                          # Añadir y hacer commit en un solo paso (solo archivos ya rastreados)
+git commit --amend                                # Modificar el último commit
+git branch                                        # Listar ramas
+git branch <nombre-rama>                          # Crear nueva rama
+git checkout <nombre-rama>                        # Cambiar a otra rama
+git checkout -b <nombre-rama>                     # Crear y cambiar a nueva rama
+git merge <nombre-rama>                           # Fusionar rama con la rama actual
+git branch -d <nombre-rama>                       # Eliminar rama local
+git branch -M main
+git remote -v                                     # Ver repositorios remotos
+git remote add <nombre> <url>                     # Añadir repositorio remoto
+git fetch <remoto>                                # Descargar cambios del remoto
+git pull <remoto> <rama>                          # Obtener y fusionar cambios del remoto
+git push <remoto> <rama>                          # Enviar cambios al repositorio remoto
+git push -u origin main
+git push -u origin <rama>                         # Establecer rama de seguimiento y enviar cambios
+git remote -v                                     # Ver repositorios remotos
+git remote add <nombre> <url>                     # Añadir repositorio remoto
+git fetch <remoto>                                # Descargar cambios del remoto
+git pull <remoto> <rama>                          # Obtener y fusionar cambios del remoto
+git push <remoto> <rama>                          # Enviar cambios al repositorio remoto
+git push --set-upstream origin master             #
+git push -u origin <rama>                         # Establecer rama de seguimiento y enviar cambios
+git push -u origin main
+git checkout -- <archivo>                         # Descartar cambios en archivo específico
+git restore <archivo>                             # Descartar cambios en archivo (Git moderno)
+git reset --hard HEAD                             # Descartar todos los cambios locales
+git revert <commit>                               # Crear nuevo commit que deshace cambios de un commit específico
+git tag                                           # Listar etiquetas
+git tag -a v1.0 -m "Versión 1.0"                  # Crear etiqueta anotada
+git push origin --tags                            # Enviar etiquetas al remoto
